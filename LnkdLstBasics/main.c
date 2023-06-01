@@ -1,22 +1,4 @@
-#include <crtdbg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <windows.h>
-
-#include "node.h"
-#include "clearConsole.h"
-#include "createLinkedList.h"
-#include "addNewNodeToStartOfList.h"
-#include "addNewNodeBeforeSpecificElementInList.h"
-#include "addNewNodeAfterSpecificElementInList.h"
-#include "addNewNodeToEndOfList.h"
-#include "deleteFromStartOfList.h"
-#include "deleteBeforeSpecificNodeFromList.h"
-#include "deleteSpecificNodeFromList.h"
-#include "deleteAfterSpecificNodeFromList.h"
-#include "deleteFromEndOfList.h"
-#include "printList.h"
-#include "freeList.h"
+#include "allHeaders.h"
 
 int main() {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);// Enable memory leak detection
@@ -26,63 +8,50 @@ int main() {
 	int middleOfList = 2;
 	int insertData = 888;
 
-	// Create head linked list 
-	head = createLinkedList(numNodes);
+	head = createLinkedList(numNodes);					// Create head linked list 
 	clearConsole();
 
-	//Add to beginning of list
-	printf("\nAdd to beginning of list\n");
+	printf("\nAdd to beginning of list\n");				//Add to beginning of list
 	addNewNodeToStartOfList(&head, insertData);
 	printList(head);
 
-	// Delete from start of list
-	printf("\nDelete from start of list\n");
+	printf("\nDelete from start of list\n");			// Delete from start of list
 	deleteFromStartOfList(&head);
 	printList(head);
 
-	// Add before specific element
-	printf("\nAdd before specific element\n");
+	printf("\nAdd before specific element\n");			// Add before specific element
 	addNewNodeBeforeSpecificElementInList(&head, middleOfList, insertData);
 	printList(head);
 
-	// Delete specific node from list
-	printf("\nDelete specific node from list\n");
+	printf("\nDelete specific node from list\n");		// Delete specific node from list
 	deleteSpecificNodeFromList(&head, middleOfList);
 	printList(head);
-
-	// Add after specific element
-	printf("\nAdd after specific element\n");
+	
+	printf("\nAdd after specific element\n");			// Add after specific element
 	addNewNodeAfterSpecificElementInList(&head, middleOfList, insertData);
 	printList(head);
 
-	// Delete after specific node from list
-	printf("\nDelete after specific node from list\n");
+	printf("\nDelete after specific node from list\n");	// Delete after specific node 
 	deleteAfterSpecificNodeFromList(&head, middleOfList);
 	printList(head);
 
-	//Add to end of list
-	printf("\nAdd to end of list\n");
+	printf("\nAdd to end of list\n");					//Add to end of list
 	addNewNodeToEndOfList(&head, insertData);
 	printList(head);
 
-	// Delete from end of list
-	printf("\nDelete from the end of the list\n");
+	printf("\nDelete from the end of the list\n");		// Delete from end of list
 	deleteNodeFromEndList(&head);
 	printList(head);
 
-	// Delete before specific node from list
-	printf("\nDelete before specific node from list\n");
+	printf("\nDelete before specific node from list\n");// Delete before specific 
 	deleteBeforeSpecificNodeFromList(&head, middleOfList);
 	printList(head);
 
-	printf("\n");
+	freeList(head);										//Free allocated memory
 
-	freeList(head);
-
-	if (_CrtDumpMemoryLeaks()) {
+	if (_CrtDumpMemoryLeaks()) {						
 		printf("\n\nMemory leaks detected!\n\n");
 	}
 
 	return 0;
 }
-

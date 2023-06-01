@@ -154,6 +154,7 @@
     <ClInclude Include="addNewNodeBeforeSpecificElementInList.h" />
     <ClInclude Include="addNewNodeToEndOfList.h" />
     <ClInclude Include="addNewNodeToStartOfList.h" />
+    <ClInclude Include="allHeaders.h" />
     <ClInclude Include="clearConsole.h" />
     <ClInclude Include="createLinkedList.h" />
     <ClInclude Include="deleteAfterSpecificNodeFromList.h" />

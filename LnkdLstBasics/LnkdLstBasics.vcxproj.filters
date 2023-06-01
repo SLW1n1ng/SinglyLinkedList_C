@@ -104,5 +104,8 @@
     <ClInclude Include="printList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="allHeaders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
